@@ -3,40 +3,54 @@
     <xs:complexType name="featureType">
         <xs:sequence>
             <xs:element type="xs:string" name="name"/>
-            <xs:element type="xs:string" name="text" maxOccurs="unbounded" minOccurs="0"/>
+            <xs:element type="xs:string" name="text" maxOccurs="unbounded" minOccurs="0" />
         </xs:sequence>
+        <xs:attribute type="xs:string" name="optional" use="optional"/>
     </xs:complexType>
-    <xs:complexType name="autolevelType" mixed="true">
+    <xs:complexType name="autolevelType">
         <xs:sequence>
-            <xs:element type="featureType" name="feature" maxOccurs="unbounded" minOccurs="0"/>
+            <xs:element type="featureType" name="feature" maxOccurs="unbounded" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation>TO DO - Add table....somehow</xs:documentation>
+                </xs:annotation>
+            </xs:element>
         </xs:sequence>
         <xs:attribute type="xs:byte" name="level" use="optional"/>
     </xs:complexType>
     <xs:complexType name="classType">
         <xs:sequence>
             <xs:element type="xs:string" name="name"/>
-            <xs:element type="xs:string" name="hd"/>
-            <xs:element type="xs:string" name="Proficiency"/>
-            <xs:element type="xs:string" name="spellAbility"/>
             <xs:element type="autolevelType" name="autolevel" maxOccurs="unbounded" minOccurs="0"/>
         </xs:sequence>
     </xs:complexType>
     <xs:complexType name="itemType">
-        <xs:sequence>
+        <xs:choice maxOccurs="unbounded" minOccurs="0">
             <xs:element type="xs:string" name="name"/>
             <xs:element type="xs:string" name="type"/>
             <xs:element type="xs:string" name="magic"/>
+            <xs:element type="xs:string" name="value"/>
             <xs:element type="xs:string" name="weight"/>
-            <xs:element type="xs:string" name="ac"/>
+            <xs:element type="xs:byte" name="ac"/>
             <xs:element type="xs:string" name="strength"/>
             <xs:element type="xs:string" name="stealth"/>
+            <xs:element type="xs:string" name="rarity"/>
+            <xs:element type="xs:string" name="text"/>
+            <xs:element type="xs:string" name="detail"/>
+            <xs:element type="xs:string" name="roll"/>
+            <xs:element type="modifierType" name="modifier"/>
             <xs:element type="xs:string" name="dmg1"/>
             <xs:element type="xs:string" name="dmg2"/>
             <xs:element type="xs:string" name="dmgType"/>
             <xs:element type="xs:string" name="property"/>
             <xs:element type="xs:string" name="range"/>
-            <xs:element type="xs:string" name="text"/>
-        </xs:sequence>
+        </xs:choice>
+    </xs:complexType>
+    <xs:complexType name="modifierType">
+        <xs:simpleContent>
+            <xs:extension base="xs:string">
+                <xs:attribute type="xs:string" name="category" use="optional"/>
+            </xs:extension>
+        </xs:simpleContent>
     </xs:complexType>
     <xs:complexType name="traitType">
         <xs:sequence>
@@ -127,11 +141,11 @@
     </xs:complexType>
     <xs:complexType name="compendiumType">
         <xs:sequence>
-            <xs:element type="classType" name="class"/>
-            <xs:element type="itemType" name="item"/>
-            <xs:element type="monsterType" name="monster"/>
-            <xs:element type="raceType" name="race"/>
-            <xs:element type="spellType" name="spell"/>
+            <xs:element type="classType" name="class" maxOccurs="unbounded" minOccurs="0"/>
+            <xs:element type="itemType" name="item" maxOccurs="unbounded" minOccurs="0"/>
+            <xs:element type="monsterType" name="monster" maxOccurs="unbounded" minOccurs="0"/>
+            <xs:element type="raceType" name="race" maxOccurs="unbounded" minOccurs="0"/>
+            <xs:element type="spellType" name="spell" maxOccurs="unbounded" minOccurs="0"/>
         </xs:sequence>
         <xs:attribute type="xs:byte" name="version"/>
     </xs:complexType>
