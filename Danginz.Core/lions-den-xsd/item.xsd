@@ -1,0 +1,38 @@
+﻿<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="compendium" type="compendiumType"/>
+    <xs:complexType name="itemType">
+        <xs:choice maxOccurs="unbounded" minOccurs="0">
+            <xs:element type="xs:string" name="name"/>
+            <xs:element type="xs:string" name="type"/>
+            <xs:element type="xs:string" name="magic"/>
+            <xs:element type="xs:string" name="value"/>
+            <xs:element type="xs:string" name="weight"/>
+            <xs:element type="xs:byte" name="ac"/>
+            <xs:element type="xs:string" name="strength"/>
+            <xs:element type="xs:string" name="stealth"/>
+            <xs:element type="xs:string" name="rarity"/>
+            <xs:element type="xs:string" name="text"/>
+            <xs:element type="xs:string" name="detail"/>
+            <xs:element type="xs:string" name="roll"/>
+            <xs:element type="modifierType" name="modifier"/>
+            <xs:element type="xs:string" name="dmg1"/>
+            <xs:element type="xs:string" name="dmg2"/>
+            <xs:element type="xs:string" name="dmgType"/>
+            <xs:element type="xs:string" name="property"/>
+            <xs:element type="xs:string" name="range"/>
+        </xs:choice>
+    </xs:complexType>
+    <xs:complexType name="modifierType">
+        <xs:simpleContent>
+            <xs:extension base="xs:string">
+                <xs:attribute type="xs:string" name="category" use="optional"/>
+            </xs:extension>
+        </xs:simpleContent>
+    </xs:complexType>
+    <xs:complexType name="compendiumType">
+        <xs:sequence>
+            <xs:element type="itemType" name="item" maxOccurs="unbounded" minOccurs="0"/>
+        </xs:sequence>
+        <xs:attribute type="xs:byte" name="version"/>
+    </xs:complexType>
+</xs:schema>

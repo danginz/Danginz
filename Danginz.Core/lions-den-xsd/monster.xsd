@@ -1,0 +1,71 @@
+﻿<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="compendium" type="compendiumType"/>
+    <xs:complexType name="traitType">
+        <xs:sequence>
+            <xs:element type="xs:string" name="name"/>
+            <xs:element type="xs:string" name="text" maxOccurs="unbounded" minOccurs="0"/>
+            <xs:element type="xs:string" name="attack" maxOccurs="unbounded" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="actionType">
+        <xs:sequence>
+            <xs:element type="xs:string" name="name"/>
+            <xs:element type="xs:string" name="text" maxOccurs="unbounded" minOccurs="0"/>
+            <xs:element type="xs:string" name="attack" maxOccurs="unbounded" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="monsterType">
+        <xs:choice maxOccurs="unbounded" minOccurs="0">
+            <xs:element type="xs:string" name="name"/>
+            <xs:element type="xs:string" name="size"/>
+            <xs:element type="xs:string" name="type"/>
+            <xs:element type="xs:string" name="alignment"/>
+            <xs:element type="xs:string" name="ac"/>
+            <xs:element type="xs:string" name="hp"/>
+            <xs:element type="xs:string" name="speed"/>
+            <xs:element type="xs:byte" name="str"/>
+            <xs:element type="xs:byte" name="dex"/>
+            <xs:element type="xs:byte" name="con"/>
+            <xs:element type="xs:string" name="int"/>
+            <xs:element type="xs:byte" name="wis"/>
+            <xs:element type="xs:string" name="cha"/>
+            <xs:element type="xs:string" name="save"/>
+            <xs:element type="xs:string" name="skill"/>
+            <xs:element type="xs:string" name="resist"/>
+            <xs:element type="xs:string" name="vulnerable"/>
+            <xs:element type="xs:string" name="immune"/>
+            <xs:element type="xs:string" name="conditionImmune"/>
+            <xs:element type="xs:string" name="senses"/>
+            <xs:element type="xs:float" name="passive"/>
+            <xs:element type="xs:string" name="languages"/>
+            <xs:element type="xs:string" name="cr"/>
+            <xs:element type="traitType" name="trait"/>
+            <xs:element type="actionType" name="action"/>
+            <xs:element type="xs:string" name="spells"/>
+            <xs:element type="xs:string" name="description"/>
+            <xs:element type="xs:string" name="slots"/>
+            <xs:element type="legendaryType" name="legendary"/>
+            <xs:element type="reactionType" name="reaction"/>
+        </xs:choice>
+    </xs:complexType>
+    <xs:complexType name="legendaryType">
+        <xs:sequence>
+            <xs:element type="xs:string" name="name"/>
+            <xs:element type="xs:string" name="text" maxOccurs="unbounded" minOccurs="0"/>
+            <xs:element type="xs:string" name="attack" maxOccurs="unbounded" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="reactionType">
+        <xs:sequence>
+            <xs:element type="xs:string" name="name"/>
+            <xs:element type="xs:string" name="text" maxOccurs="unbounded" minOccurs="0"/>
+            <xs:element type="xs:string" name="attack" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="compendiumType">
+        <xs:sequence>
+            <xs:element type="monsterType" name="monster" maxOccurs="unbounded" minOccurs="0"/>
+        </xs:sequence>
+        <xs:attribute type="xs:byte" name="version"/>
+    </xs:complexType>
+</xs:schema>
