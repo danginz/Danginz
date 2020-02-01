@@ -19,17 +19,17 @@
       <list>
         <option value="$PROJECT_DIR$/Danginz.Core/lions-den-xsd/item.xsd" />
         <option value="$PROJECT_DIR$/Danginz.Core/lions-den-xsd/spell.xsd" />
-        <option value="$PROJECT_DIR$/Danginz.Core/Program.fs" />
         <option value="$PROJECT_DIR$/Danginz.Core/lions-den-xsd/monster.xsd.xml" />
         <option value="$PROJECT_DIR$/Danginz.Core/lions-den-xsd/monster.xsd" />
-        <option value="$PROJECT_DIR$/Danginz.Core/lions-den-xsd/compendium.xsd" />
         <option value="$PROJECT_DIR$/Danginz.Core/LionsDenParser.fs" />
+        <option value="$PROJECT_DIR$/Danginz.Core/Program.fs" />
+        <option value="$PROJECT_DIR$/Danginz.Core/lions-den-xsd/compendium.xsd" />
       </list>
     </option>
   </component>
   <component name="ProjectId" id="1XBgA723wz6jhuNcZBHUvtO4pDX" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
-    <option name="autoscrollFromSource" value="true" />
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -82,7 +82,7 @@
       <workItem from="1580524759142" duration="250000" />
       <workItem from="1580525026069" duration="21000" />
       <workItem from="1580525815559" duration="11401000" />
-      <workItem from="1580588654501" duration="991000" />
+      <workItem from="1580588654501" duration="1233000" />
     </task>
     <servers />
   </component>
